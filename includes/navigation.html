@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <span class="navbar-brand text-primary">TEA APP</span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href='index.php'>HOME</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href='users.php'>USERS</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href='logout.php'>LOGOUT</a>
+            </li>                        
+        </ul>
+        
+        <span>
+            <a class="nav-link" href='admin.php'><?php if(isset($_SESSION['email'])){echo $_SESSION['email'];} ?></a>
+        </span>
+    </div>
+</nav>
