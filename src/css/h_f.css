@@ -1,0 +1,26 @@
+*{
+    box-sizing:border-box;
+}
+
+/*
+header settings
+*/
+header{
+    padding:20px;
+}
+
+/*
+navbar settings
+*/
+nav{
+    border-top:1px solid black;
+    border-bottom:1px solid black;
+}
+
+
+/*
+footer settings
+*/
+footer{
+    padding:20px;
+}
