@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="author" content="Ali Issaee" />
+        <meta name="description" content="A basic tea app to work out whose round it is to make the brews" />
+        <meta name="keywords" content="tea, coffee, tearound, workplace" />
+    
+        <title><?php if(isset($page_title)){echo $page_title;} ?></title>
+        
+        <!--jquery and css external files-->
+        <link rel="stylesheet" href='../src/lib/bootstrap.min.css' />
+        <script type="text/javascript" src="../src/lib/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="../src/lib/bootstrap.bundle.min.js"></script>
+        
+        <!--personal stylesheets-->
+        <link rel="stylesheet" href='../src/css/h_f.css' /><!--header and footer-->
+        <link rel="stylesheet" href='<?php if(isset($css)){echo $css;} ?>' /> <!--page specific stylesheet-->
+        <script type="text/javascript" src="<?php if(isset($js)){echo $js;} ?>"></script><!--page specific script sheet-->
+        
+    </head>
+    
+    <body>
+       
+        <header class="container-fluid bg-light">
+            <h3 class="text-center text-primary">TEA ROUND RANDOMISER</h3>
+        </header>
+        
+        
