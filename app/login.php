@@ -4,6 +4,7 @@ session_start();
 
 
 //include page title and header
+$css = '../src/css/login.css';
 $page_title = "LOGIN";
 include_once('../includes/header.html');
 
@@ -13,6 +14,7 @@ include_once('../includes/header.html');
 
 <!--create form-->
 <div class="container" id="form-wrapper">
+    <h2 class="text-primary text-center">SIGN IN</h2>
     <form role="form" action="index.php" method="post">
         <div class="form-group">
             <label for="email">EMAIL:</label><br />
