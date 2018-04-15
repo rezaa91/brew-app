@@ -7,13 +7,13 @@ header settings
 */
 header{
     padding:20px;
+    border-bottom:1px solid black;
 }
 
 /*
 navbar settings
 */
 nav{
-    border-top:1px solid black;
     border-bottom:1px solid black;
 }
 
@@ -22,5 +22,6 @@ nav{
 footer settings
 */
 footer{
+    border-top:1px solid black;
     padding:20px;
 }
