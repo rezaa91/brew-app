@@ -1,0 +1,13 @@
+#form-wrapper{
+    box-shadow:1px 1px 5px black;
+    padding:20px;
+    margin-top:15vh;
+    background-color:white;
+}
+
+body{
+    background-image: url(../img/coffee-beans.jpg);
+    background-repeat:no-repeat;
+    background-size: cover;
+    height:100vh;
+}
