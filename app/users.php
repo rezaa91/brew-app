@@ -86,7 +86,7 @@ if(isset($_SESSION['id']) && $_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT
             $email = mysqli_real_escape_string($dbc, trim($_POST['email']));
         }else{
             $email = null;
-            $errors[] = "Please enter the users email";
+            $errors[] = "Please enter a valid email address";
         }
         
         
