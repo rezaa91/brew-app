@@ -39,7 +39,7 @@ if(isset($_SESSION['id']) && $_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT
                 $r = mysqli_query($dbc,$q);
                 
                 if(mysqli_affected_rows($dbc) == 1){//database updated if 1 row has been affected
-                    $outcome = "Administrator has been added. Please <a href='index.php'>Login</a>";
+                    $outcome = "Administrator has been added.";
                 }else{ //if affected rows does not equal 1 then an error has occured
                     $outcome = "Sorry, something went wrong. Please <a href='add_admin.php'>try again</a>. ".mysqli_error($dbc);
                 }
