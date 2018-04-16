@@ -70,7 +70,7 @@ if(isset($_SESSION['id']) && $_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT
                 $body = wordwrap($body, 70);
                 $headers = "MIME-VERSION:1.0" ."\r\n";
                 $headers .= "Content-type:text/html;charset=UTF-8" ."\r\n";
-                $headers .= 'FROM: <info@doman.co.uk>'; //SET THIS TO SERVER DOMAIN EMAIL IN ORDER TO SEND EMAIL TO RECIPIENT
+                $headers .= 'FROM: <info@domain.co.uk>'; //SET THIS TO SERVER DOMAIN EMAIL IN ORDER TO SEND EMAIL TO RECIPIENT
                 
                 
                 //send email to picked user
