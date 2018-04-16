@@ -3,6 +3,8 @@
 session_start();
 
 if(isset($_SESSION['id']) && $_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT'])){ //if user logged in
+    $page_title = "Admin Settings";
+    $css = '../src/css/admin.css';
     include_once('../includes/header.html');
     include_once('../includes/navigation.html');
     include_once('../includes/db_connection.php');
@@ -39,20 +41,20 @@ if(isset($_SESSION['id']) && $_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT
                     $r = mysqli_query($dbc, $q);
 
                     if($r){
-                        echo "Password changed successfully";
+                        $pass_update = "Password changed successfully";
                     }else{
-                        echo "We could not change your password at this time, please try again later";
+                        $pass_update = "We could not change your password at this time, please try again later";
                     }
                 }else{
                     echo mysqli_error($dbc);
                 }
             }else{
-                echo "new password and password confirmation do not match" .mysqli_error($dbc);
+                $pass_update = "new password and password confirmation do not match" .mysqli_error($dbc);
             }
             
             
         }else{
-            echo "new password and password confirmation do not match" .mysqli_error($dbc);
+            $pass_update = "Please fill in all fields" .mysqli_error($dbc);
         } 
     }//end of form handling IF
     
@@ -67,10 +69,11 @@ if(isset($_SESSION['id']) && $_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT
         while($row = mysqli_fetch_array($r, MYSQLI_ASSOC)){
             $_SESSION['email'] = $row['email'];
 
-            echo "<div class='container-fluid'>
-            <div class='row'>
-                <div class='col-md-6'>
-                    <form role='form' action='admin.php' method='post'>
+            echo "<div class='container'>
+            <h3 id='admin-title'>Administrative Settings</h3>
+            <div class='row' id='admin-content'>
+                <div class='col-md-6' id='admin-form-wrapper-content'>
+                    <form role='form' id='admin-form' action='admin.php' method='post'>
                         <div class='form-group'>
                             <label for='email'>EMAIL:</label><br />
                             <input type='email' class='form-control' name='email' value='".$row['email']."'/>
@@ -87,14 +90,16 @@ if(isset($_SESSION['id']) && $_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT
                         </div>
                         
                         <div class='form-group'>
-                            <input type='submit' class='btn btn-default' value='confirm'/>
-                            <a type='button' class='btn btn-danger text-white' href='delete_account.php'>DELETE ACCOUNT</a>
+                            <input type='submit' class='btn btn-default' id='confirm-btn' value='confirm'/>
+                            <a type='button' class='btn btn-danger' href='delete_account.php'>DELETE ACCOUNT</a>
                         </div>
-                        
-                    </form>    
-                </div>";
+                    </form>";
+            if(isset($pass_update)){
+                echo "<div class='error_msg'><span>* $pass_update</span></div>";
             }
-            echo"<div class='col-md-6'><h4 class='text-center'>ADMINISTRATORS <a href='add_admin.php' class='btn btn-primary'>+</a></h4>";
+            echo "</div>";
+            }
+            echo"<div class='col-md-6' id='admin-wrapper-content'><h4 class='text-center'>Administrators <a href='add_admin.php' class='btn' id='add-admin-btn'>+</a></h4>";
             
         $q = "SELECT email FROM admin";
         $r = mysqli_query($dbc, $q);
