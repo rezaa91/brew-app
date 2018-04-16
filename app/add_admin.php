@@ -4,6 +4,7 @@ session_start();
 
 if(isset($_SESSION['id']) && $_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT'])){ //page can only be accessed if logged in
     $page_title = "Add Administrator";
+    $css = '../src/css/add_admin.css';
     include_once('../includes/header.html');
     include_once('../includes/navigation.html');
     include_once('../includes/db_connection.php');
@@ -38,44 +39,54 @@ if(isset($_SESSION['id']) && $_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT
                 $r = mysqli_query($dbc,$q);
                 
                 if(mysqli_affected_rows($dbc) == 1){//database updated if 1 row has been affected
-                    echo "Administrator has been added. Please <a href='index.php'>Login</a>";
+                    $outcome = "Administrator has been added. Please <a href='index.php'>Login</a>";
                 }else{ //if affected rows does not equal 1 then an error has occured
-                    echo "Sorry, something went wrong. Please <a href='add_admin.php'>TRY AGAIN</a>. ".mysqli_error($dbc);
+                    $outcome = "Sorry, something went wrong. Please <a href='add_admin.php'>try again</a>. ".mysqli_error($dbc);
                 }
                 
             }else{ //email already exists if query returns more than 0 results
-                echo "Email already exists <a href='add_admin.php'>TRY AGAIN</a>";
+                $outcome = "Email already exists. Please <a href='add_admin.php'>try again</a>";
             }
             
+            echo "<div class='container outcome'>$outcome</div>";
+            
         }else{
-            echo "<span class='text-danger'>ERRORS:</span><ul>";
+            echo "<div class='container outcome'><span>Errors:</span><ul>";
             foreach($errors as $err){
                 echo "<li>$err</li>";
             }
-            echo "</ul><a href='add_admin.php'>TRY AGAIN</a>";
+            echo "</ul><a href='add_admin.php'>Try again</a></div>";
             $_POST=[];
         }//end of form handling
         
 
     }else{//if not shown yet then show form
-        echo '<div class="container">
-            <form role="form" action="add_admin.php" method="post">
-                <div class="form-group">
-                    <label for="email">EMAIL</label><br />
-                    <input type="text" name="email" class="form-control"  />
+        echo '<div class="container" id="form-wrapper">
+            <div class="row">
+                <div class="col-md-6" id="img-wrapper">
+                    <img class="img-fluid" src="../src/img/coffee-1.jpg" />
                 </div>
                 
-                <div class="form-group">
-                    <label for="pass">PASSWORD</label><br />
-                    <input type="password" name="pass" class="form-control" />
+                <div class="col-md-6">
+                    <h4>Add New Administrator Information</h4>
+                    <form role="form" action="add_admin.php" method="post">
+                        <div class="form-group">
+                            <label for="email">EMAIL</label><br />
+                            <input type="text" name="email" class="form-control"  />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pass">PASSWORD</label><br />
+                            <input type="password" name="pass" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-default" class="form-control" id="submit" value="ADD ADMINISTRATOR" />
+                        </div>
+
+                    </form>
                 </div>
-                
-                <div class="form-group">
-                    <input type="submit" class="btn btn-default" class="form-control"  value="ADD ADMINISTRATOR" />
-                </div>
-                
-            </form>
-        </div>';
+            </div>';
     }
     
     
