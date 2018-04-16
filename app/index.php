@@ -52,27 +52,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                 include_once('../includes/navigation.html');
 
                 #body content
-                echo '
-                <div class="row container-fluid bg-dark" id="index-img">
-                    <div class="col-md-3">
-                        <img src="../src/img/coffee.jpg" class="img-fluid" />
-                    </div>
-                    <div class="col-md-3">
-                        <img src="../src/img/coffee.jpg" class="img-fluid" />
-                    </div>
-                    <div class="col-md-3">
-                        <img src="../src/img/coffee.jpg" class="img-fluid" />
-                    </div>
-                    <div class="col-md-3">
-                        <img src="../src/img/coffee.jpg" class="img-fluid" />
-                    </div>
-                </div>
-                
-                <div class="container-fluid jumbotron text-center" id="call-round">
-                    <h3 class="text-muted">WHO WILL IT BE?</h3>
-                    <p class="lead">If you lose, you make the brews!</p>
-                <a class="btn btn-lg btn-primary" href="call_round.php">CALL ROUND</a>
-                </div>';
+                include_once('../includes/index-body.html');
 
                 #include footer
                 include_once('../includes/footer.html');
@@ -102,32 +82,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 }else if(isset($_SESSION['id']) && $_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT'])){ //else display page if user already logged in
     #set page title and include header and navigation - incl page specific stylesheet
     $css = '../src/css/index.css';
-    $page_title = "TEA APP";
+    $page_title = "just BREW IT";
     include_once('../includes/header.html');
     include_once('../includes/navigation.html');
 
     #body content
-    echo '
-    <div class="row container-fluid bg-dark" id="index-img">
-        <div class="col-md-3">
-            <img src="../src/img/coffee.jpg" class="img-fluid" />
-        </div>
-        <div class="col-md-3">
-            <img src="../src/img/coffee.jpg" class="img-fluid" />
-        </div>
-        <div class="col-md-3">
-            <img src="../src/img/coffee.jpg" class="img-fluid" />
-        </div>
-        <div class="col-md-3">
-            <img src="../src/img/coffee.jpg" class="img-fluid" />
-        </div>
-    </div>
-                
-    <div class="container-fluid jumbotron text-center" id="call-round">
-        <h3 class="text-muted">WHO WILL IT BE?</h3>
-        <p class="lead">If you lose, you make the brews!</p>
-    <a class="btn btn-lg btn-primary" href="call_round.php">CALL ROUND</a>
-    </div>';
+    include_once('../includes/index-body.html');
 
     #include footer
     include_once('../includes/footer.html');
