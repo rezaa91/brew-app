@@ -73,10 +73,12 @@ if(isset($_SESSION['id']) && $_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT
         
     }else{ //display form
         $page_title = "Delete Account";
+        $css = '../src/css/delete_account.css';
         include('../includes/header.html');
         include('../includes/navigation.html');
         
-        echo '<div class="container">
+        echo '<div class="container" id="form-wrapper">
+            <h4>Are you sure you want to delete your account?</h4>
             <form role="form" action="delete_account.php" method="POST">
                 <div class="form-group">
                     <label for="email">EMAIL: </label>
@@ -84,12 +86,12 @@ if(isset($_SESSION['id']) && $_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT
                 </div>
                 
                 <div class="form-group">
-                    <label for="pass">PASSWORD: </label>
+                    <label for="pass">CONFIRM PASSWORD: </label>
                     <input type="password" name="pass" class="form-control" />
                 </div>
                 
                 <div class="form-group">
-                    <input type="submit" name="submit" class="btn btn-danger form-control text-white" value="ARE YOU SURE?" />
+                    <input type="submit" name="submit" id="submit" class="btn btn-danger form-control" value="DELETE ACCOUNT" />
                 </div>
                 
             </form>
