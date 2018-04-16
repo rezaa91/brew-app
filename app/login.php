@@ -14,7 +14,7 @@ include_once('../includes/header.html');
 
 <!--create form-->
 <div class="container" id="form-wrapper">
-    <h2 class="text-primary text-center">SIGN IN</h2>
+    <h2 class="text-center">SIGN IN</h2>
     <form role="form" action="index.php" method="post">
         <div class="form-group">
             <label for="email">EMAIL:</label><br />
@@ -27,7 +27,7 @@ include_once('../includes/header.html');
         </div>
         
         <div class="form-group">
-            <input type="submit" name="submit" class="form-control btn btn-lg btn-primary" value="LOGIN"/>
+            <input type="submit" id="submit" name="submit" class="form-control btn btn-lg" value="LOGIN"/>
         </div>
         
     </form><!--end of form-->
@@ -39,14 +39,14 @@ include_once('../includes/header.html');
     <?php
     
     if(isset($_SESSION['errors'])){
-        echo "<h5 class='text-danger'>Sorry, we could not login you in due to the following reasons:</h5><ul class='list-group list-group-flush'>";
+        $error_msg = "<h5>Sorry, we could not login you in due to the following reasons:</h5><ul class='list-group list-group-flush'>";
         foreach($_SESSION['errors'] as $err){
-            echo '<li class="list-group-item text-muted">'.$err.'</li>';
+            $error_msg .= '<li class="list-group-item">'.$err.'</li>';
         }
-        echo "</ul>";
+        $error_msg .= "</ul>";
+        
+        echo "<div class='container' id='error-wrapper'>$error_msg</div>";
     }
-    
-    
     ?>
 </div>
 
