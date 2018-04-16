@@ -6,17 +6,18 @@ if(isset($_SESSION['id']) && $_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT
     
     //include files
     $page_title = "Users";
+    $css = '../src/css/users.css';
     include_once('../includes/header.html'); //header
     include_once('../includes/navigation.html'); //navigation bar
     include_once('../includes/db_connection.php'); //DB connection
     
     
     //create body content to display users in a table - needs ability to add and delete users
-    echo '<div class="container-fluid jumbotron"><h3 class="text-center text-primary">USERS</h3></div>'; //header
+    echo '<div class="container" id="users-wrapper"><h3 class="users-title">Users</h3></div>'; //header
     
     //begin table
     echo '<div class="text-center">
-        <table class="container" border="2px">
+        <table class="container">
             <thead>
                 <tr>
                     <th>First Name</th>
@@ -137,9 +138,9 @@ if(isset($_SESSION['id']) && $_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT
                     $r = mysqli_query($dbc, $q);
                     
                     if(mysqli_affected_rows($dbc) == 1){//if inserted in to DB correctly
-                        echo "<div class='container text-center text-success'>The user has been added!</div>";
+                        echo "<div class='container text-center color'>The user has been added.</div>";
                     }else{
-                        echo "<div class='container text-center text-danger'>Sorry, something went wrong, please try again.</div>";
+                        echo "<div class='container text-center color'>Sorry, something went wrong. Please try again.</div>";
                     }
                     
                 }else{
@@ -147,79 +148,81 @@ if(isset($_SESSION['id']) && $_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT
                 }
                 
             }else{
-                echo "<div class='container text-center text-danger'>Email already exists, please choose another</div>";
+                echo "<div class='container text-center color'>Email already exists, please choose another.</div>";
             }
             
             
         }else{
-            echo "<div class='container'><span class='text-danger'>Sorry, we could not add the user for the following reasons:</span><ul>";
+            $error_msg = "<div class='error-msg'><span class='error-header'>Sorry, we could not add the user for the following reasons:</span><ul>";
             foreach($errors as $err){
-                echo "<li>$err</li>";
+                $error_msg.= "<li>$err</li>";
             }
-            echo "</ul></div>";
+            $error_msg.= "</ul></div>";
         }
                             
                             
     }
     
     
-    //create form so administrator able to add and delete users
-    echo '<div class="container">
-        <h4 class="text-center">Add User</h4>
-        <form role="form" action="users.php" method="post">
-            <div class="form-group">
-                <label for="first_name">First Name: </label>
-                <input type="text" name="first_name" class="form-control"/>
-            </div>
-            
-            <div class="form-group">
-                <label for="last_name">Last Name: </label>
-                <input type="text" name="last_name" class="form-control"/>
-            </div>
-            
-            <div class="form-group">
-                <label for="email">Email: </label>
-                <input type="text" name="email" class="form-control"/>
-            </div>
-            
-            <div class="form-group">
-                <label for="busy">How Busy Are You? </label>
-                <select name="busy" class="form-control">
-                    <option value="0">Not at all busy</option>
-                    <option value="1">Moderate</option>
-                    <option value="2">Snowed in!</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="type">Drink Type: </label>
-                <select name="type" class="form-control">
-                    <option value="tea">Tea</option>
-                    <option value="coffee">Coffee</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="milk">Milk: </label><br />
-                <input type="radio" name="milk" value="1"/> Yes
-                <input type="radio" name="milk" value="0"/> No
-            </div>
-            
-            <div class="form-group">
-                <label for="sugar">Sugar: </label>
-                <select name="sugar" class="form-control">
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary form-control" value="ADD USER" />
-            </div>
-        </form>
-    </div>';//end of form
+    //create form so administrator able to add users
+    echo '<div class="container" id="add-user-wrapper">
+    <div class="row">
+        <div class="col-md-6">
+            <h4 class="users-title">Add User</h4>
+            <form role="form" action="users.php" method="post" id="add-user-form">
+                <div class="form-group">
+                    <input type="text" name="first_name" class="form-control" placeholder="First Name" />
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="last_name" class="form-control" placeholder="Last Name" />
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="email" class="form-control" placeholder="Email" />
+                </div>
+
+                <div class="form-group">
+                    <select name="busy" class="form-control">
+                        <option value="" disabled selected>How Busy Are You?</option>
+                        <option value="0">Not at all busy</option>
+                        <option value="1">Moderate</option>
+                        <option value="2">Snowed in!</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <select name="type" class="form-control">
+                        <option value="" disabled selected>Drink Preference</option>
+                        <option value="tea">Tea</option>
+                        <option value="coffee">Coffee</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <select name="sugar" class="form-control">
+                        <option value="" disabled selected>Sugar?</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="milk">Milk: </label><br />
+                    <input type="radio" name="milk" value="1"/> Yes
+                    <input type="radio" name="milk" value="0"/> No
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn form-control" id="add-user-btn" value="ADD USER" />
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">';
+    if(isset($error_msg)){echo $error_msg;};
+    echo '</div></div></div>';//end of form
     
     
     
