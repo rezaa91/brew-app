@@ -1,12 +1,27 @@
-#call-round{
-    margin-bottom:0px;
-}
-
 #index-img{
+    background-color:rgb(178,139,80);
     margin:auto;
     padding-top:40px;
     padding-bottom:40px;
 }
 #index-img img{
     border-radius:50px;
+    border:1px solid rgb(51,28,20);
+}
+
+#call-round{
+    margin-bottom:0px;
+}
+#call-round h3{
+    color:rgb(114,63,46);
+    font-family: 'Raleway', sans-serif;
+    font-weight:bold;
+}
+#call-round p{
+    color:rgb(178,139,80);
+    font-style:italic;
+}
+#call-round a{
+    background-color:rgb(86,116,150);
+    color:rgb(219,190,147);
 }

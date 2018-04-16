@@ -1,0 +1,45 @@
+#users-wrapper{
+    margin-top:30px;
+}
+.users-title{
+    font-family:'raleway',sans-serif;
+}
+tr{
+    border:2px solid rgb(51,28,20);
+}
+td{
+    border:2px solid rgb(51,28,20);
+    color:rgb(114,63,46);
+}
+th{
+    border:2px solid rgb(51,28,20);
+    background-color:rgb(219,190,147);
+    color:rgb(51,28,20);
+}
+
+#add-user-wrapper{
+    margin-top:50px;
+    padding:10px;
+}
+.color{
+    color:rgb(86,116,150);
+}
+
+#add-user-btn{
+    background-color:rgb(51,28,20);
+    color:rgb(219,190,147);
+}
+
+.error-msg ul{
+    list-style:none;
+    padding:0;
+}
+.error-msg li{
+    color:rgb(86,116,150);
+}
+
+.error-header{
+    font-family:'raleway',sans-serif;
+    font-weight:bold;
+    color:rgb(114,63,46);
+}

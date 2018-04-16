@@ -1,13 +1,26 @@
 #form-wrapper{
-    box-shadow:1px 1px 5px black;
     padding:20px;
-    margin-top:15vh;
-    background-color:white;
+    margin-top:10vh;
+    color:rgb(51,28,20);
 }
 
-body{
-    background-image: url(../img/coffee-beans.jpg);
-    background-repeat:no-repeat;
-    background-size: cover;
-    height:100vh;
+#form-wrapper h2{
+    color:rgb(51,28,20);
+}
+#form-wrapper label{
+    color:rgb(178,139,80);
+    font-weight:bold;
+}
+#submit{
+    background-color:rgb(51,28,20);
+    color:rgb(219,190,147);
+}
+#submit:hover{
+    background-color:rgba(51,28,20,0.95);
+}
+#error-wrapper h5{
+    color:rgb(51,28,20);
+}
+#error-wrapper li{
+    color:rgb(86,116,150);
 }

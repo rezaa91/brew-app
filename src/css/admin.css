@@ -1,0 +1,53 @@
+#admin-content{
+    margin-top:30px;
+    box-shadow:1px 1px 5px rgb(114,63,46);
+    margin-bottom:30px;
+}
+#admin-title{
+    margin-top:20px;
+    font-family: 'Raleway', sans-serif;
+    color:rgb(86,116,150);
+    font-weight:bold;
+    font-size:22px;
+}
+#admin-form{
+    color:rgb(51,28,20);
+}
+#confirm-btn{
+    background-color:rgb(51,28,20);
+    color:rgb(219,190,147);
+}
+#confirm-btn:hover{
+    background-color:rgba(51,28,20,0.95);
+}
+#admin-form-wrapper-content{
+    padding:15px;
+}
+#admin-wrapper-content{
+    background-color:rgb(219,190,147);
+    padding:15px;
+}
+#admin-wrapper-content h4{
+    color:rgb(51,28,20);
+    font-family:'Raleway',sans-serif;
+}
+#add-admin-btn{
+    background-color:rgb(86,116,150);
+    color:rgb(219,190,147);
+    font-weight:bold;
+}
+#add-admin-btn:hover{
+    background-color:rgb(90,120,150);
+}
+#admin-wrapper-content ul{
+    list-style:circle;
+}
+#admin-wrapper-content li{
+    font-family: 'raleway',sans-serif;
+    color:rgb(86,116,150);
+    font-size:20px;
+}
+.error_msg{
+    color:rgb(51,28,20);
+    font-style:italic;
+}

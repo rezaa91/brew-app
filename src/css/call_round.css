@@ -1,0 +1,54 @@
+#call-round-wrapper{
+    margin-top:30px;
+}
+.call-round-title{
+    color:rgb(86,116,150);
+}
+.brew-it{
+    font-family:'raleway',sans-serif;
+    color: rgb(114,63,46);
+}
+.just{
+    font-family: 'Dancing Script', cursive;
+    color: rgb(114,63,46);
+    font-size:40px;
+}
+.call-round-user{
+    background-color:rgb(219,190,147);
+    color:rgb(51,28,20);
+    border-radius:10px;
+    padding:10px;
+    font-family:'raleway',sans-serif;
+    font-weight:bold;
+    font-size:32px;
+    box-shadow:1px 1px 5px rgb(219,190,147);
+}
+
+#table-wrapper{
+    margin-top:30px;
+}
+#table-wrapper h3{
+    color:rgb(114,63,46);
+}
+
+tr{
+    border:2px solid rgb(51,28,20);
+}
+td{
+    border:2px solid rgb(51,28,20);
+    color:rgb(114,63,46);
+}
+th{
+    border:2px solid rgb(51,28,20);
+    background-color:rgb(219,190,147);
+    color:rgb(51,28,20);
+}
+.email-msg{
+    margin-top:20px;
+    color:rgb(51,28,20);
+}
+.email-msg h5{
+    font-family:'raleway',sans-serif;
+    font-size:18px;
+    font-style:italic;
+}

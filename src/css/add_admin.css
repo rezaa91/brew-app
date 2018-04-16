@@ -1,0 +1,30 @@
+#form-wrapper{
+    padding:20px;
+    margin-top:30px;
+    color:rgb(51,28,20);
+}
+
+#form-wrapper label{
+    color:rgb(178,139,80);
+    font-weight:bold;
+}
+#form-wrapper h4{
+    color:rgb(51,28,20);
+    margin-bottom:20px;
+}
+#submit{
+    background-color:rgb(51,28,20);
+    color:rgb(219,190,147);
+}
+#submit:hover{
+    background-color:rgba(51,28,20,0.95);
+}
+
+img{
+    border-radius:20px;
+    box-shadow:1px 1px 5px rgb(51,28,20);
+}
+.outcome{
+    margin-top:30px;
+    color:rgb(51,28,20);
+}

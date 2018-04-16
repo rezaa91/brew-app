@@ -1,0 +1,13 @@
+#form-wrapper{
+    padding:20px;
+    margin-top:30px;
+    color:rgb(51,28,20);
+}
+
+#form-wrapper h4{
+    color:rgb(51,28,20);
+}
+#form-wrapper label{
+    color:rgb(178,139,80);
+    font-weight:bold;
+}
